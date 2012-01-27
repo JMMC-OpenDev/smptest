@@ -7,11 +7,12 @@ import fr.jmmc.jmcs.App;
 import fr.jmmc.jmcs.gui.MessagePane;
 import fr.jmmc.jmcs.gui.SwingSettings;
 import fr.jmmc.jmcs.gui.SwingUtils;
-import fr.jmmc.jmcs.gui.WindowCenterer;
+import fr.jmmc.jmcs.network.interop.SampCapability;
 import fr.jmmc.jmcs.network.interop.SampManager;
+import fr.jmmc.jmcs.network.interop.SampMessageHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
+import org.astrogrid.samp.Message;
 
 /**
  * AppLauncherTester main class.
@@ -29,7 +30,8 @@ public class AppLauncherTester extends App {
      * @param args command-line options.
      */
     public AppLauncherTester(final String[] args) {
-        super(args);
+        // Start whith no splash screen
+        super(args, false, true, false);
     }
 
     /**
@@ -48,25 +50,47 @@ public class AppLauncherTester extends App {
         }
     }
 
-    /**
-     * Execute application body = make the application frame visible
-     */
+
     @Override
     protected void execute() {
-        // Using invokeAndWait to be in sync with this thread :
-        // note: invokeAndWaitEDT throws an IllegalStateException if any exception occurs
-        SwingUtils.invokeAndWaitEDT(new Runnable() {
+    }
+
+    /**
+     * Create SAMP Message handlers
+     */
+    @Override
+    protected void declareInteroperability() {
+
+        // Add fake handler to allow AppLauncher JNLP startup test routine
+        new SampMessageHandler(SampCapability.APPLAUNCHERTESTER_TRY_LAUNCH) {
 
             /**
-             * Initializes the swing components with their actions in EDT
+             * Implements message processing
+             *
+             * @param senderId public ID of sender client
+             * @param message message with MType this handler is subscribed to
+             * @throws SampException if any error occurred while message processing
              */
             @Override
-            public void run() {
-                //App.setFrame(WelcomeWindow.getInstance());
-                MessagePane.showMessage("AppLauncher installation and first run went fine !", "Congratulation !");
-                App.quitAction().actionPerformed(null);
+            protected void processMessage(final String senderId, final Message message) {
+                _logger.info("Received '" + this.handledMType() + "' message from '" + senderId + "' : '" + message + "'.");
+                // Using invokeAndWait to be in sync with this thread :
+                // note: invokeAndWaitEDT throws an IllegalStateException if any exception occurs
+                SwingUtils.invokeAndWaitEDT(new Runnable() {
+
+                    /**
+                     * Initializes the SWING components with their actions in EDT
+                     */
+                    @Override
+                    public void run() {
+                        //App.setFrame(WelcomeWindow.getInstance());
+                        MessagePane.showMessage("AppLauncher installation and first run went fine !", "Congratulation !");
+                        App.quitAction().actionPerformed(null);
+                    }
+                });
             }
-        });
+        };
+
     }
 
     /**
