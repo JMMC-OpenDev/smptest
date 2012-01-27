@@ -93,21 +93,21 @@ PY_SCRIPTS_L   =
 #
 # Jarfiles and their directories
 # ---------------------------------
-JARFILES        =
+JARFILES        = smptest
 
 #
-# <brief description of jjjfff jar files>
-jjjfff_DIRS     =
-jjjfff_EXTRAS   = 
+# <brief description of smptest JAR files>
+smptest_DIRS     = fr
+smptest_EXTRAS   = fr/jmmc/smptest/resource/ApplicationData.xml
 
 #
 # Java programs
 # ---------------------------------
-JAVA_EXECUTABLES=
+JAVA_EXECUTABLES = AppLauncherTester
 
 #
 # <brief description of jjjjjj java program>
-jjjjjj_CLASS    =
+AppLauncherTester_CLASS = fr.jmmc.smptest.AppLauncherTester
 
 #
 # Command Definition Files (CDF)
@@ -158,6 +158,8 @@ man   : do_man
 	@echo " . . . man page(s) done"
 
 install : install_all
+	@echo "......jnlps:"
+	jmcsDeployJnlp AppLauncherTester.jnlp    
 	@echo " . . . installation done"
 
 #___oOo___
