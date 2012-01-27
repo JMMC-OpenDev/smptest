@@ -1,18 +1,17 @@
 /*******************************************************************************
  * JMMC project ( http://www.jmmc.fr ) - Copyright (C) CNRS.
  ******************************************************************************/
-package fr.jmmc.smprun;
+package fr.jmmc.smptest;
 
 import fr.jmmc.jmcs.App;
+import fr.jmmc.jmcs.gui.MessagePane;
 import fr.jmmc.jmcs.gui.SwingSettings;
 import fr.jmmc.jmcs.gui.SwingUtils;
 import fr.jmmc.jmcs.gui.WindowCenterer;
 import fr.jmmc.jmcs.network.interop.SampManager;
-import fr.jmmc.smprun.stub.ClientStub;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import org.ivoa.util.runner.LocalLauncher;
 
 /**
  * AppLauncherTester main class.
@@ -29,7 +28,7 @@ public class AppLauncherTester extends App {
      *
      * @param args command-line options.
      */
-    public AppLauncher(final String[] args) {
+    public AppLauncherTester(final String[] args) {
         super(args);
     }
 
@@ -37,7 +36,7 @@ public class AppLauncherTester extends App {
      * Initialize application objects
      * @param args ignored arguments
      *
-     * @throws RuntimeException if the AppLauncher initialisation failed
+     * @throws RuntimeException if the AppLauncherTester initialization failed
      */
     @Override
     protected void init(final String[] args) {
@@ -47,7 +46,13 @@ public class AppLauncherTester extends App {
         if (!SampManager.isConnected()) {
             throw new IllegalStateException("Unable to connect to an existing hub or start an internal SAMP hub !");
         }
+    }
 
+    /**
+     * Execute application body = make the application frame visible
+     */
+    @Override
+    protected void execute() {
         // Using invokeAndWait to be in sync with this thread :
         // note: invokeAndWaitEDT throws an IllegalStateException if any exception occurs
         SwingUtils.invokeAndWaitEDT(new Runnable() {
@@ -57,30 +62,9 @@ public class AppLauncherTester extends App {
              */
             @Override
             public void run() {
-                App.setFrame(WelcomeWindow.getInstance());
-            }
-        });
-    }
-
-    /**
-     * Execute application body = make the application frame visible
-     */
-    @Override
-    protected void execute() {
-        SwingUtils.invokeLaterEDT(new Runnable() {
-
-            /**
-             * Show the application frame using EDT
-             */
-            @Override
-            public void run() {
-                _logger.fine("AppLauncherTester.ready : handler called.");
-
-                final JFrame frame = getFrame();
-
-                WindowCenterer.centerOnMainScreen(frame);
-
-                frame.setVisible(true);
+                //App.setFrame(WelcomeWindow.getInstance());
+                MessagePane.showMessage("AppLauncher installation and first run went fine !", "Congratulation !");
+                App.quitAction().actionPerformed(null);
             }
         });
     }

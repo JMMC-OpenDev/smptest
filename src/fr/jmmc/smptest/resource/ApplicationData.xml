@@ -14,7 +14,7 @@
 
     <compilation date="27/01/2012" compiler="JDK 1.5.0_16"/>
 
-    <text>Minimal SAMP application to test AppLauncher capability</text>
+    <text>Minimal SAMP application to test AppLauncher JNLP starting ability</text>
 
     <dependences>
 
