@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApplicationData link="http://www.jmmc.fr/AppLauncher/">
+
+    <company>
+        <short_name>JMMC</short_name>
+        <legal_name>Jean-Marie Mariotti Center</legal_name>
+        <logo_resource>/fr/jmmc/jmcs/resource/logo.png</logo_resource>
+        <homepage_url>http://www.jmmc.fr/</homepage_url>
+        <feedback_form_url>http://jmmc.fr/feedback/smprun.php</feedback_form_url>
+    </company>
+
+    <program name="AppLauncher" version="1.0b6"/>
+
+    <compilation date="16/03/2012" compiler="JDK 1.5.0_16"/>
+
+    <text>AppLauncher is the JMMC SAMP hub extension, to automatically start capable applications 'on demand' and provide a 'Dock' window with all JMMC applications and VO compliant tools</text>
+
+    <dependences>
+    </dependences>
+
+    <menubar>
+        <menu label="Help">
+            <menu label="Launch JNLP/SAMP Auto-Test" classpath="fr.jmmc.smprun.AppLauncher" action="_launchJnlpSampAutoTestAction"/>
+        </menu>
+    </menubar>
+
+    <releasenotes>
+        <release version="1.0">
+            <prerelease version="1.0b6" tag="AL_V1_0b6">
+                <change type="FEATURE">Added a user manual.</change>
+            </prerelease>
+            <prerelease version="1.0b5" tag="AL_V1_0b5">
+                <change type="CHANGE">Off-loaded stub description files to an external resource file for easier updates.</change>
+            </prerelease>
+            <prerelease version="1.0b4" tag="AL_V1_0b4">
+                <change type="CHANGE">Updated the reporting window to include contact email and JNLP URL input fields.</change>
+            </prerelease>
+            <prerelease version="1.0b3" tag="AL_V1_0b3">
+                <change type="FEATURE">Added an entry in the Help menu to manually test JNLP and SAMP abilities.</change>
+                <change type="FEATURE">Added automatic JNLP starting ability test.</change>
+            </prerelease>
+            <prerelease version="1.0b2" tag="AL_V1_0b2">
+                <change type="CHANGE">Restructured registry organization.</change>
+                <change type="BUGFIX" >Fixed non-detection of unknown real applications.</change>
+            </prerelease>
+            <prerelease version="1.0b1" tag="AL_V1_0b1">
+                <change type="FEATURE">SAMP application meta-data reporting.</change>
+            </prerelease>
+            <prerelease version="1.0d4" tag="AL_V1_0d4">
+                <change type="BUGFIX" url="http://trac.jmmc.fr/jmmc-applauncher/ticket/5">Feedback reports now go to AppLauncher's dedicated Trac environment.</change>
+                <change type="CHANGE">SAMP hub sniffing.</change>
+            </prerelease>
+            <prerelease version="1.0d3" tag="AL_V1_0d3">
+                <change type="CHANGE">Central SAMP hub monitoring.</change>
+            </prerelease>
+            <prerelease version="1.0d2" tag="AL_V1_0d2">
+                <change type="CHANGE">Better process launching.</change>
+                <change type="CHANGE">Better EDT handling.</change>
+            </prerelease>
+            <prerelease version="1.0d1" tag="AL_V1_0d1">
+                <change type="FEATURE">First internal release.</change>
+            </prerelease>
+        </release>
+    </releasenotes>
+
+    <acknowledgment><![CDATA[This research has made use of the Jean-Marie Mariotti Center \texttt{AppLauncher} application \footnote{Available at http://www.jmmc.fr/applauncher}
+developped by IPAG, heavily based on \texttt{jSAMP} from Mark TAYLOR \footnote{Available at http://software.astrogrid.org/doc/p/jsamp/1.3-2/}.]]>
+    </acknowledgment>
+
+</ApplicationData>
