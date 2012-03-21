@@ -1,0 +1,10 @@
+/*******************************************************************************
+ * JMMC project ( http://www.jmmc.fr ) - Copyright (C) CNRS.
+ ******************************************************************************/
+
+/**
+\mainpage smpins : AppLauncher deployment suite
+
+\bdesc
+This module provide a tool named smpinsInstall to help with the installation of AppLauncher.
+*/
