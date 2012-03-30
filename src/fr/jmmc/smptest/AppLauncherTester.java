@@ -7,7 +7,7 @@ import fr.jmmc.jmcs.App;
 import fr.jmmc.jmcs.gui.component.MessagePane;
 import fr.jmmc.jmcs.gui.util.SwingSettings;
 import fr.jmmc.jmcs.gui.util.SwingUtils;
-import fr.jmmc.jmcs.gui.util.WindowCenterer;
+import fr.jmmc.jmcs.gui.util.WindowUtils;
 import fr.jmmc.jmcs.network.interop.SampCapability;
 import fr.jmmc.jmcs.network.interop.SampManager;
 import fr.jmmc.jmcs.network.interop.SampMessageHandler;
@@ -84,7 +84,7 @@ public class AppLauncherTester extends App {
                      */
                     @Override
                     public void run() {
-                        WindowCenterer.centerOnMainScreen(App.getFrame());
+                        WindowUtils.centerOnMainScreen(App.getFrame());
                         App.getFrame().setVisible(false);
                         MessagePane.showMessage("AppLauncher installation and first run went fine !", "Congratulation !");
                         App.getFrame().setVisible(false);
