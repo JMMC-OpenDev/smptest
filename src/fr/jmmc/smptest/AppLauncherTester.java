@@ -11,9 +11,9 @@ import fr.jmmc.jmcs.gui.util.WindowUtils;
 import fr.jmmc.jmcs.network.interop.SampCapability;
 import fr.jmmc.jmcs.network.interop.SampManager;
 import fr.jmmc.jmcs.network.interop.SampMessageHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.astrogrid.samp.Message;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * AppLauncherTester main class.
@@ -23,7 +23,7 @@ import org.astrogrid.samp.Message;
 public class AppLauncherTester extends App {
 
     /** Logger */
-    private static final Logger _logger = Logger.getLogger(AppLauncherTester.class.getName());
+    private static final Logger _logger = LoggerFactory.getLogger(AppLauncherTester.class.getName());
 
     /**
      * Launch the AppLauncherTester application.
@@ -43,14 +43,12 @@ public class AppLauncherTester extends App {
      */
     @Override
     protected void init(final String[] args) {
-
         // Start first the SampManager (connect to an existing hub or start a new one)
         // and check if it is connected to one Hub:
         if (!SampManager.isConnected()) {
             throw new IllegalStateException("Unable to connect to an existing hub or start an internal SAMP hub !");
         }
     }
-
 
     @Override
     protected void execute() {
@@ -74,7 +72,10 @@ public class AppLauncherTester extends App {
              */
             @Override
             protected void processMessage(final String senderId, final Message message) {
-                _logger.info("Received '" + this.handledMType() + "' message from '" + senderId + "' : '" + message + "'.");
+                if (_logger.isInfoEnabled()) {
+                    _logger.info("Received '{}' message from '{}' : '{}'.",
+                            new Object[]{this.handledMType(), senderId, message});
+                }
                 // Using invokeAndWait to be in sync with this thread :
                 // note: invokeAndWaitEDT throws an IllegalStateException if any exception occurs
                 SwingUtils.invokeAndWaitEDT(new Runnable() {
@@ -112,10 +113,8 @@ public class AppLauncherTester extends App {
             // Start application with the command line arguments
             new AppLauncherTester(args);
         } finally {
-            final long time = (System.nanoTime() - start);
-
-            if (_logger.isLoggable(Level.INFO)) {
-                _logger.info("startup : duration = " + 1e-6d * time + " ms.");
+            if (_logger.isInfoEnabled()) {
+                _logger.info("startup : duration = {} ms.", 1e-6d * (System.nanoTime() - start));
             }
         }
     }
