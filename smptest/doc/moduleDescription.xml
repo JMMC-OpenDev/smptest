@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+********************************************************************************
+* JMMC project ( http://www.jmmc.fr ) - Copyright (C) CNRS.
+********************************************************************************
+-->
+
+<module name="smptest">
+    <desc>Minimal SAMP application to test AppLauncher capability</desc>
+    <resp>Sylvain LAFRASSE</resp>
+    <institute>JMMC</institute>
+    <package>AppLauncher</package>
+</module>
