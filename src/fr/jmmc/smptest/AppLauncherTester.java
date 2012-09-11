@@ -1,6 +1,8 @@
-/*******************************************************************************
+/**
+ * *****************************************************************************
  * JMMC project ( http://www.jmmc.fr ) - Copyright (C) CNRS.
- ******************************************************************************/
+ *****************************************************************************
+ */
 package fr.jmmc.smptest;
 
 import fr.jmmc.jmcs.App;
@@ -17,12 +19,14 @@ import org.slf4j.LoggerFactory;
 
 /**
  * AppLauncherTester main class.
- * 
+ *
  * @author Sylvain LAFRASSE
  */
 public class AppLauncherTester extends App {
 
-    /** Logger */
+    /**
+     * Logger
+     */
     private static final Logger _logger = LoggerFactory.getLogger(AppLauncherTester.class.getName());
 
     /**
@@ -37,6 +41,7 @@ public class AppLauncherTester extends App {
 
     /**
      * Initialize application objects
+     *
      * @param args ignored arguments
      *
      * @throws RuntimeException if the AppLauncherTester initialization failed
@@ -62,7 +67,6 @@ public class AppLauncherTester extends App {
 
         // Add fake handler to allow AppLauncher JNLP startup test routine
         new SampMessageHandler(SampCapability.APPLAUNCHERTESTER_TRY_LAUNCH) {
-
             /**
              * Implements message processing
              *
@@ -74,12 +78,11 @@ public class AppLauncherTester extends App {
             protected void processMessage(final String senderId, final Message message) {
                 if (_logger.isInfoEnabled()) {
                     _logger.info("Received '{}' message from '{}' : '{}'.",
-                            new Object[]{this.handledMType(), senderId, message});
+                            this.handledMType(), senderId, message);
                 }
                 // Using invokeAndWait to be in sync with this thread :
                 // note: invokeAndWaitEDT throws an IllegalStateException if any exception occurs
                 SwingUtils.invokeAndWaitEDT(new Runnable() {
-
                     /**
                      * Initializes the SWING components with their actions in EDT
                      */
