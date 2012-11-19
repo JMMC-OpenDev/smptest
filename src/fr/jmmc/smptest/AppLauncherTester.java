@@ -1,7 +1,7 @@
 /**
  * *****************************************************************************
  * JMMC project ( http://www.jmmc.fr ) - Copyright (C) CNRS.
- *****************************************************************************
+ * ****************************************************************************
  */
 package fr.jmmc.smptest;
 
@@ -42,12 +42,10 @@ public class AppLauncherTester extends App {
     /**
      * Initialize application objects
      *
-     * @param args ignored arguments
-     *
      * @throws RuntimeException if the AppLauncherTester initialization failed
      */
     @Override
-    protected void init(final String[] args) {
+    protected void init() {
         // Start first the SampManager (connect to an existing hub or start a new one)
         // and check if it is connected to one Hub:
         if (!SampManager.isConnected()) {
