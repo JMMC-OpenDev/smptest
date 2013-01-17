@@ -90,7 +90,7 @@ public class AppLauncherTester extends App {
                         App.getFrame().setVisible(false);
                         MessagePane.showMessage("AppLauncher installation and first run went fine !", "Congratulation !");
                         App.getFrame().setVisible(false);
-                        App.quitAction().actionPerformed(null);
+                        App.quit();
                     }
                 });
             }
