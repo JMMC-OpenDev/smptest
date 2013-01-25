@@ -39,14 +39,13 @@ public class AppLauncherTester extends App {
         super(args, false, true, false);
     }
 
-    /**
-     * Initialize application objects
-     *
-     * @throws RuntimeException if the AppLauncherTester initialization failed
-     */
     @Override
-    protected void init() {
-        // Start first the SampManager (connect to an existing hub or start a new one)
+    protected void initServices() {
+    }
+
+    @Override
+    protected void setupGui() {
+        // Start first the SampManager (connect to an existing hub or ___internalStart a new one)
         // and check if it is connected to one Hub:
         if (!SampManager.isConnected()) {
             throw new IllegalStateException("Unable to connect to an existing hub or start an internal SAMP hub !");
@@ -105,7 +104,7 @@ public class AppLauncherTester extends App {
     @SuppressWarnings("ResultOfObjectAllocationIgnored")
     public static void main(final String[] args) {
 
-        // init swing application for science
+        // setupGui swing application for science
         SwingSettings.setup();
 
         final long start = System.nanoTime();
