@@ -6,8 +6,8 @@
 package fr.jmmc.smptest;
 
 import fr.jmmc.jmcs.App;
+import fr.jmmc.jmcs.Bootstrapper;
 import fr.jmmc.jmcs.gui.component.MessagePane;
-import fr.jmmc.jmcs.gui.util.SwingSettings;
 import fr.jmmc.jmcs.gui.util.SwingUtils;
 import fr.jmmc.jmcs.gui.util.WindowUtils;
 import fr.jmmc.jmcs.network.interop.SampCapability;
@@ -89,11 +89,16 @@ public class AppLauncherTester extends App {
                         App.getFrame().setVisible(false);
                         MessagePane.showMessage("AppLauncher installation and first run went fine !", "Congratulation !");
                         App.getFrame().setVisible(false);
-                        App.quit();
+                        App.exit(0);
                     }
                 });
             }
         };
+    }
+
+    @Override
+    protected void cleanup() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     /**
@@ -103,19 +108,7 @@ public class AppLauncherTester extends App {
      */
     @SuppressWarnings("ResultOfObjectAllocationIgnored")
     public static void main(final String[] args) {
-
-        // setupGui swing application for science
-        SwingSettings.setup();
-
-        final long start = System.nanoTime();
-        try {
-            // Start application with the command line arguments
-            new AppLauncherTester(args);
-        } finally {
-            if (_logger.isInfoEnabled()) {
-                _logger.info("startup : duration = {} ms.", 1e-6d * (System.nanoTime() - start));
-            }
-        }
+        Bootstrapper.launch(new AppLauncherTester(args));
     }
 }
 /*___oOo___*/
