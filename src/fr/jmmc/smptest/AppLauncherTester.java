@@ -89,7 +89,7 @@ public class AppLauncherTester extends App {
                         App.getFrame().setVisible(false);
                         MessagePane.showMessage("AppLauncher installation and first run went fine !", "Congratulation !");
                         App.getFrame().setVisible(false);
-                        App.exit(0);
+                        Bootstrapper.stopApp(0);
                     }
                 });
             }
@@ -108,7 +108,7 @@ public class AppLauncherTester extends App {
      */
     @SuppressWarnings("ResultOfObjectAllocationIgnored")
     public static void main(final String[] args) {
-        Bootstrapper.launch(new AppLauncherTester(args));
+        Bootstrapper.launchApp(new AppLauncherTester(args));
     }
 }
 /*___oOo___*/
