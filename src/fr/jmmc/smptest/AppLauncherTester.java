@@ -36,7 +36,7 @@ public class AppLauncherTester extends App {
      */
     public AppLauncherTester(final String[] args) {
         // Start whith no splash screen
-        super(args, false, true, false);
+        super(args);
     }
 
     @Override
@@ -108,7 +108,7 @@ public class AppLauncherTester extends App {
      */
     @SuppressWarnings("ResultOfObjectAllocationIgnored")
     public static void main(final String[] args) {
-        Bootstrapper.launchApp(new AppLauncherTester(args));
+        Bootstrapper.launchApp(new AppLauncherTester(args), false, true, false);
     }
 }
 /*___oOo___*/
