@@ -13,6 +13,7 @@ import fr.jmmc.jmcs.gui.util.WindowUtils;
 import fr.jmmc.jmcs.network.interop.SampCapability;
 import fr.jmmc.jmcs.network.interop.SampManager;
 import fr.jmmc.jmcs.network.interop.SampMessageHandler;
+import javax.swing.JFrame;
 import org.astrogrid.samp.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,9 +25,7 @@ import org.slf4j.LoggerFactory;
  */
 public class AppLauncherTester extends App {
 
-    /**
-     * Logger
-     */
+    /** Logger */
     private static final Logger _logger = LoggerFactory.getLogger(AppLauncherTester.class.getName());
 
     /**
@@ -41,6 +40,7 @@ public class AppLauncherTester extends App {
 
     @Override
     protected void initServices() {
+        // No op
     }
 
     @Override
@@ -54,6 +54,7 @@ public class AppLauncherTester extends App {
 
     @Override
     protected void execute() {
+        // No op
     }
 
     /**
@@ -85,10 +86,11 @@ public class AppLauncherTester extends App {
                      */
                     @Override
                     public void run() {
-                        WindowUtils.centerOnMainScreen(App.getFrame());
-                        App.getFrame().setVisible(false);
+                        final JFrame frame = getFrame();
+                        WindowUtils.centerOnMainScreen(frame);
+                        frame.setVisible(false);
                         MessagePane.showMessage("AppLauncher installation and first run went fine !", "Congratulation !");
-                        App.getFrame().setVisible(false);
+                        frame.setVisible(false);
                         Bootstrapper.stopApp(0);
                     }
                 });
