@@ -13,6 +13,7 @@ import fr.jmmc.jmcs.gui.util.WindowUtils;
 import fr.jmmc.jmcs.network.interop.SampCapability;
 import fr.jmmc.jmcs.network.interop.SampManager;
 import fr.jmmc.jmcs.network.interop.SampMessageHandler;
+import fr.jmmc.jmcs.util.concurrent.ThreadExecutors;
 import javax.swing.JFrame;
 import org.astrogrid.samp.Message;
 import org.slf4j.Logger;
@@ -54,7 +55,8 @@ public class AppLauncherTester extends App {
 
     @Override
     protected void execute() {
-        // No op
+        ThreadExecutors.sleep(30000l); // 30s before exiting
+        Bootstrapper.stopApp(1);
     }
 
     /**
