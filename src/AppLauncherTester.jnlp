@@ -4,9 +4,9 @@
         <title>AppLauncherTester</title>
         <vendor>JMMC (Jean-Marie MARIOTTI Center)</vendor>
         <homepage href="http://www.jmmc.fr/Applauncher/"/>
+        <description>Minimal SAMP application to test AppLauncher capability</description>
         <description kind="tooltip">AppLauncher Tester</description>
-        <description kind="short">Minimal SAMP application to test AppLauncher capability</description>
-        <offline-allowed/> 
+        <offline-allowed/>
     </information>
     <security>
         <all-permissions/>
@@ -22,7 +22,7 @@
 
         <!-- JMMC libs -->
         <extension href="../JmcsLibs/JmcsLibs.jnlp"/>
-        
+
     </resources>
     <application-desc main-class="fr.jmmc.smptest.AppLauncherTester"/>
 </jnlp>
