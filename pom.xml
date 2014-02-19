@@ -19,8 +19,7 @@
     <url>http://www.jmmc.fr/applauncher</url>
 
     <properties>
-	<!-- do make assembly and copy dependencies -->
-	<assembly.skipAssembly>false</assembly.skipAssembly>
+	<!-- do copy dependencies (JNLP) -->
 	<mdep.skip>false</mdep.skip>
     </properties>
 
