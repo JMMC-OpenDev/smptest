@@ -21,7 +21,7 @@
         <jar href="jar/jmcs-TRUNK.jar" />
 
         <!-- JMMC libs -->
-        <extension href="../jmcs/JmcsLibs.jnlp"/>
+        <extension href="../jmcs/Jmcs.jnlp"/>
 
     </resources>
     <application-desc main-class="fr.jmmc.smptest.AppLauncherTester"/>
