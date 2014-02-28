@@ -14,13 +14,13 @@
     <resources>
         <j2se version="1.6+" initial-heap-size="64m" max-heap-size="128m"/>
 
+        <!-- MANUALLY EDITED - Should be generated with maven ASAP ! -->
+
         <!-- Application module first (main class) -->
         <jar href="jar/smptest-TRUNK.jar" />
 
-        <!-- JMMC modules -->
-        <jar href="jar/jmcs-TRUNK.jar" />
 
-        <!-- JMMC libs -->
+        <!-- JMMC modules -->
         <extension href="../jmcs/Jmcs.jnlp"/>
 
     </resources>
