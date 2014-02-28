@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<jnlp spec="1.0+" codebase="@GENERATED@" href="@GENERATED@">
+<jnlp spec="1.0+" codebase="@GENERATED@" href="AppLauncherTester.jnlp">
     <information>
         <title>AppLauncherTester</title>
         <vendor>JMMC (Jean-Marie MARIOTTI Center)</vendor>
@@ -15,13 +15,13 @@
         <j2se version="1.6+" initial-heap-size="64m" max-heap-size="128m"/>
 
         <!-- Application module first (main class) -->
-        <jar href="jar/smptest-1.0.0.jar" />
+        <jar href="jar/smptest-TRUNK.jar" />
 
         <!-- JMMC modules -->
-        <jar href="jar/jmcs-1.0.0.jar" />
+        <jar href="jar/jmcs-TRUNK.jar" />
 
         <!-- JMMC libs -->
-        <extension href="../JmcsLibs/JmcsLibs.jnlp"/>
+        <extension href="../jmcs/JmcsLibs.jnlp"/>
 
     </resources>
     <application-desc main-class="fr.jmmc.smptest.AppLauncherTester"/>
