@@ -102,7 +102,7 @@ public class AppLauncherTester extends App {
 
     @Override
     protected void cleanup() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        // No op
     }
 
     /**
