@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>fr.jmmc</groupId>
+        <artifactId>jmmc</artifactId>
+        <version>TRUNK</version>
+        <!--  please install first parent pom from jMCS/parent-pom directory -->
+    </parent>
+
+    <groupId>fr.jmmc.smptest</groupId>
+    <artifactId>smptest</artifactId>
+    <packaging>jar</packaging>
+
+    <name>AppLauncherTester</name>
+    <url>http://www.jmmc.fr/applauncher</url>
+
+    <properties>
+	<!-- do copy dependencies (JNLP) -->
+	<mdep.skip>false</mdep.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>fr.jmmc.jmcs</groupId>
+            <artifactId>jmcs</artifactId>
+            <version>TRUNK</version>
+        </dependency>
+    </dependencies>
+
+</project>
