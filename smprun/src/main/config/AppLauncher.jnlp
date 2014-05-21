@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<jnlp spec="1.0+" codebase="@GENERATED@" href="AppLauncher.jnlp">
+    <information>
+        <title>AppLauncher</title>
+        <vendor>JMMC (Jean-Marie MARIOTTI Center)</vendor>
+        <homepage href="http://www.jmmc.fr/Applauncher/"/>
+        <description>Automatic SAMP application launcher</description>
+        <description kind="tooltip">AppLauncher</description>
+        <icon href="@GENERATED@/AppIcon.png"/>
+        <offline-allowed/>
+        <shortcut>
+            <desktop/>
+        </shortcut>
+    </information>
+    <security>
+        <all-permissions/>
+    </security>
+    <resources>
+        <j2se version="1.6+" initial-heap-size="64m" max-heap-size="128m"/>
+
+        <!-- MANUALLY EDITED - Should be generated with maven ASAP ! -->
+
+        <!-- Application module first (main class) -->
+        <jar href="jar/smprun-TRUNK.jar" />
+
+
+        <!-- Configuration module -->
+        <extension href="../../AppLauncherConfig/smprsc/AppLauncherConfig.jnlp"/>
+
+
+        <!-- doc module -->
+        <!-- TODO <jar href="jar/smprun-doc-1.0.0.jar" /> -->
+
+
+        <!-- JMMC modules -->
+        <extension href="../jmcs/Jmcs.jnlp"/>
+
+    </resources>
+    <application-desc main-class="fr.jmmc.smprun.AppLauncher"/>
+</jnlp>
