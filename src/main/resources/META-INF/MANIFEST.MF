@@ -8,3 +8,4 @@ Application-Name: AppLauncherTester
 Permissions: all-permissions
 Codebase: http://apps.jmmc.fr
 Main-Class: fr.jmmc.smptest.AppLauncherTester
+Multi-Release: true
